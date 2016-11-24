@@ -4,13 +4,6 @@
   </div>
 </template>
 
-<script>
-  import store from './vuex/store'
-  export default {
-    store
-  }
-</script>
-
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

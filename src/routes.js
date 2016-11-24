@@ -1,5 +1,5 @@
-import hello from './pages/hello'
-import index from './pages/index'
+import hello from './pages/hello/hello'
+import index from './pages/index/index'
 
 export default [
   {

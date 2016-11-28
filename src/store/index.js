@@ -11,13 +11,14 @@ const store = new Vuex.Store({
     indexMsg: 'Hello 123456',
   },
   actions: {
-    SET_INDEXMSG: ({commit, string}) => {
+    SET_INDEXMSG: ({commit},string) => {
       commit("SET_INDEXMSG", string)
     }
   },
   mutations: {
-    SET_INDEXMSG: (state, res,string) => {
-      //state.indexMsg = string
+    SET_INDEXMSG: (state, string) => {
+      console.log('string:' + string)
+      state.indexMsg = string
     }
   },
   getters: {

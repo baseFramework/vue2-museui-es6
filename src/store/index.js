@@ -3,26 +3,15 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
+import index from '../pages/index/store.js'
+// import hello from '../pages/index/hello.js'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  state: {
-    indexMsg: 'Hello 123456',
-  },
-  actions: {
-    SET_INDEXMSG: ({commit},string) => {
-      commit("SET_INDEXMSG", string)
-    }
-  },
-  mutations: {
-    SET_INDEXMSG: (state, string) => {
-      console.log('string:' + string)
-      state.indexMsg = string
-    }
-  },
-  getters: {
-    getIndexData:state => state.indexMsg
+  modules: {
+    index
+   // hello
   }
 })
 

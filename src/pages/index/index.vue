@@ -21,7 +21,7 @@
     created: function () {
       // `this` 指向 vm 实例
       console.log(this.$store)
-      this.$store.dispatch('SET_INDEXMSG', 'Hello World!')
+      this.$store.dispatch('SET_INDEXMSG', 'Hello World!223')
 
     },
     mounted: function () {

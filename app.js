@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.set('version', meta.version);
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 5001);
 app.set('views', path.join(__dirname, 'dist', 'html'));
 app.use(express.static(__dirname + '/dist'));
 app.set('logger', console);

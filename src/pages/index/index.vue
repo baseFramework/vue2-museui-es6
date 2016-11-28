@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div>
-      {{msg}}
-    </div>
-    <div>
-      {{indexMsg}}
-    </div>
+    <layout>
+      <div>
+        {{indexMsg}}
+      </div>
+    </layout>
   </div>
 </template>
 
 <script>
+  import Layout from '../../components/layout'
   export default {
     name: 'index',
     data () {
@@ -17,6 +17,9 @@
         msg: 'Welcome to Your Vue.js App',
         indexMsg: '223'
       }
+    },
+    components: {
+      Layout
     },
     created: function () {
       // `this` 指向 vm 实例

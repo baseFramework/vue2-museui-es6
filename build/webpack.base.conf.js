@@ -9,6 +9,9 @@ var env = process.env.NODE_ENV
 var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
 var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+var koutoSwiss        = require('kouto-swiss');
+var jeet              = require('jeet');
+var rupture           = require('rupture');
 
 module.exports = {
   entry: {
@@ -73,5 +76,12 @@ module.exports = {
         browsers: ['last 2 versions']
       })
     ]
+  },
+  stylus: {
+    use: [
+      koutoSwiss(),
+      rupture(),
+      jeet()
+    ],
   }
 }

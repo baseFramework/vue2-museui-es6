@@ -7,8 +7,8 @@
 </template>
 
 <script>
-  import head from '../../components/header.vue'
-  import navi from '../../components/navi.vue'
+  import head from '../../components/header/header.vue'
+  import navi from '../../components/navi/navi.vue'
   export default {
     name: 'index',
     data () {

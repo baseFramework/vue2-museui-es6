@@ -1,15 +1,14 @@
 <template>
   <div>
-    <layout>
-      <div>
-        {{indexMsg}}
-      </div>
-    </layout>
+    <com-head></com-head>
+    <com-navi></com-navi>
+    <div>{{indexMsg}}</div>
   </div>
 </template>
 
 <script>
-  import Layout from '../../components/layout'
+  import head from '../../components/header.vue'
+  import navi from '../../components/navi.vue'
   export default {
     name: 'index',
     data () {
@@ -19,7 +18,8 @@
       }
     },
     components: {
-      Layout
+      comHead:head,
+      comNavi:navi
     },
     created: function () {
       // `this` 指向 vm 实例

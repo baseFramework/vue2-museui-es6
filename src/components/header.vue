@@ -1,17 +1,13 @@
 <template>
-  <mu-appbar v-bind:title="title">
-  </mu-appbar>
+  <mu-appbar v-bind:title="title"></mu-appbar>
 </template>
 
 <script>
   export default {
     data () {
       return {
-        title: ''
+        title: '果壳'
       }
-    },
-    mounted: function () {
-      this.title = '果壳'
     }
   }
 </script>

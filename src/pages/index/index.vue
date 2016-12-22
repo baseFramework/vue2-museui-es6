@@ -2,7 +2,7 @@
   <div>
     <com-head></com-head>
     <com-navi></com-navi>
-    <com-datalist></com-datalist>
+    <com-datalist v-bind:items="biolist"></com-datalist>
     <div>{{indexMsg}}</div>
   </div>
 </template>
@@ -16,7 +16,8 @@
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
-        indexMsg: '223'
+        indexMsg: '223',
+        biolist:[]
       }
     },
     components: {
@@ -26,13 +27,18 @@
     },
     created: function () {
       // `this` 指向 vm 实例
-      console.log(this.$store)
       this.$store.dispatch('SET_INDEXMSG', 'Hello World!223')
-
+      this.$store.dispatch('SET_BIOLOGYLIST', 10)
     },
     mounted: function () {
       // `this` 指向 vm 实例
-      this.indexMsg = this.$store.getters.getIndexData
+      this.indexMsg = this.$store.getters.getIndexData;
+    },
+    computed:{
+      biolist(){
+        console.log('length1122:' + this.$store.getters.getBiologyList.length);
+        return this.$store.getters.getBiologyList
+      }
     }
   }
 </script>

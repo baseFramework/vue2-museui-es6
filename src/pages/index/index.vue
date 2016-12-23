@@ -1,7 +1,7 @@
 <template>
   <div>
     <com-head></com-head>
-    <com-navi v-bind:active="biology"></com-navi>
+    <com-navi v-bind:current="index"></com-navi>
     <com-datalist v-bind:items="biolist" v-bind:ends="bioend" v-on:updatelist="updatebiolist"></com-datalist>
   </div>
 </template>
@@ -14,7 +14,6 @@
     name: 'index',
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App',
         biolist: [],
         bioend: 0
       }
@@ -26,8 +25,8 @@
     },
     created: function () {
       // `this` 指向 vm 实例
-      this.$store.dispatch('SET_INDEXMSG', 'Hello World!223')
       this.$store.dispatch('SET_BIOLOGYLIST', 0)
+      this.$store.dispatch('SET_CURRENT', 'index');
     },
     computed: {
       biolist(){

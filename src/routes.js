@@ -1,5 +1,6 @@
 import hello from './pages/hello/hello'
 import index from './pages/index/index'
+import math from './pages/math/math'
 
 export default [
   {
@@ -11,6 +12,11 @@ export default [
     path: '/index',
     component: index,
     name: 'index',
+  },
+  {
+    path: '/math',
+    component: math,
+    name: 'math',
   },
   { path: '*', redirect: '/index' }
 ]

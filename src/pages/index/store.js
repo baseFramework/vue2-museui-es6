@@ -6,40 +6,20 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
 const state = {
-  indexMsg: 'Hello 123456',
   biologyList: [],
   listApi: apiConfig.api.listApi,
-  bioend: 10,
-  bioload: false,
-  biofinished: false
+  bioend: 10
 };
 
 const getters = {
-  getIndexData: state => state.indexMsg,
   getBioEnd: state => state.bioend,
-  getBioLoad: state => state.bioload,
-  getBioFinished: state => state.biofinished,
   getBiologyList : state => state.biologyList,
 };
 
 const actions = {
-  /*
-   * 设置首页消息
-   * */
-  SET_INDEXMSG: ({commit}, string) => {
-    commit(types.SET_INDEXMSG, string)
-  },
 
   SET_BIOEND: ({commit}, num) => {
     commit(types.SET_BIOEND, num)
-  },
-
-  SET_BIOLOAD: ({commit}, boolean) => {
-    commit(types.SET_BIOLOAD, boolean)
-  },
-
-  SET_BIOFINISHED: ({commit}, boolean) => {
-    commit(types.SET_BIOFINISHED, boolean)
   },
 
   SET_BIOLOGYLIST: ({commit}, start) => {
@@ -53,32 +33,26 @@ const actions = {
       }).then(function (response) {
         commit(types.SET_BIOLOGYLIST, response)
       })
+  },
+
+  SET_CLEARBIOLIST:({commit}) =>{
+    commit(types.SET_CLEARBIOLIST)
   }
 
 }
 
 const mutations = {
-
-  [types.SET_INDEXMSG] (state, string) {
-    state.indexMsg = string
-  },
-
   [types.SET_BIOEND] (state, boolean) {
     state.bioend = boolean
   },
 
-  [types.SET_BIOLOAD] (state, num) {
-    state.bioload = num
-  },
-
-
-  [types.SET_BIOFINISHED] (state, boolean) {
-    state.biofinished = boolean
-  },
-
   [types.SET_BIOLOGYLIST] (state, response) {
     state.biologyList = state.biologyList.concat(response.data.data.results)
-    //console.log(state.biologyList);
+  },
+
+
+  [types.SET_CLEARBIOLIST] (state) {
+    state.biologyList = [];
   },
 
 };

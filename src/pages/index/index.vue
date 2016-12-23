@@ -1,7 +1,7 @@
 <template>
   <div>
     <com-head></com-head>
-    <com-navi></com-navi>
+    <com-navi v-bind:active = "biology"></com-navi>
     <com-datalist v-bind:items="biolist" v-bind:ends="bioend" v-on:updatelist = "updatebiolist"></com-datalist>
   </div>
 </template>

@@ -13,9 +13,10 @@
   export default {
     data () {
       return {
-        activeTab: 'tab1'
+        activeTab: 'biology'
       }
     },
+    props:['active'],
     methods: {
       handleTabChange (val) {
         this.activeTab = val

@@ -2,7 +2,7 @@
   <div>
     <com-head></com-head>
     <com-navi></com-navi>
-    <com-datalist v-bind:items="biolist"></com-datalist>
+    <com-datalist v-bind:items="biolist" v-bind:ends="bioend" v-on:updatelist = "updatebiolist"></com-datalist>
   </div>
 </template>
 
@@ -16,7 +16,8 @@
       return {
         msg: 'Welcome to Your Vue.js App',
         indexMsg: '223',
-        biolist:[]
+        biolist:[],
+        bioend:0
       }
     },
     components: {
@@ -27,7 +28,7 @@
     created: function () {
       // `this` 指向 vm 实例
       this.$store.dispatch('SET_INDEXMSG', 'Hello World!223')
-      this.$store.dispatch('SET_BIOLOGYLIST', 10)
+      this.$store.dispatch('SET_BIOLOGYLIST', 0)
     },
     mounted: function () {
       // `this` 指向 vm 实例
@@ -35,8 +36,18 @@
     },
     computed:{
       biolist(){
-        console.log('length1122:' + this.$store.getters.getBiologyList.length);
+        //console.log('length1122:' + this.$store.getters.getBiologyList.length);
         return this.$store.getters.getBiologyList
+      },
+      bioend(){
+        console.log( this.$store.getters.getBioEnd);
+        return this.$store.getters.getBioEnd
+      }
+    },
+    methods:{
+      updatebiolist:function(start){
+        this.$store.dispatch('SET_BIOEND',start);
+        this.$store.dispatch('SET_BIOLOGYLIST', start)
       }
     }
   }

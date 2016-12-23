@@ -2,13 +2,14 @@
   <div class="demo-infinite-container">
     <mu-grid-list class="gridlist-demo">
       <!--<mu-sub-header>图片展示</mu-sub-header>-->
-      <mu-grid-tile v-for="item in list">
-        <!--<img :src="tile.image"/>-->
-        <span slot="title">11</span>
-        <span slot="subTitle">by <b>222</b></span>
+      <mu-grid-tile v-for="item in items" :rows=1 :cols=1>
+        <img :src="item.listimg"/>
+        <span class="datalist-span" slot="title">{{item.summary}}</span>
+        <!--<span slot="subTitle">by <b>222</b></span>-->
       </mu-grid-tile>
     </mu-grid-list>
-    <mu-flat-button label="加载更多"  @click="loadMore" class="demo-flat-button" primary/>
+    <mu-flat-button v-if="isEnd === true"  label="已经加载完成" class="demo-flat-button" disabled/>
+    <mu-flat-button v-if="isEnd === false" label="加载更多" @click="loadMore" class="demo-flat-button" primary/>
   </div>
 </template>
 
@@ -19,36 +20,34 @@
 <script>
   export default {
     data () {
-      const list = []
-      for (let i = 0; i < 10; i++) {
-        list.push('item' + (i + 1))
-      }
       return {
-        list,
-        num: 2,
-        loading: false,
-        scroller: null
+        scroller: null,
+        isEnd:false
       }
     },
-    props:['items'],
-    created:function(){
+    props: ['items','ends'],
+    created: function () {
       this.items = this.items ? this.items : [];
+      this.ends = this.ends ? this.ends : 0;
     },
     mounted () {
       this.scroller = this.$el;
-     // console.log('length: '+this.items);
+     // this.ends =
+      // console.log('length: '+this.items);
     },
     methods: {
       loadMore () {
-       // console.log(1234);
-        this.loading = true;
-        setTimeout(() => {
-          for (let i = this.num; i < this.num + 10; i++) {
-            this.list.push('item' + (i + 1))
-          }
-          this.num += 10
-          //this.loading = false
-        }, 500);
+        var _me = this;
+        var dataindex = _me.ends + 10;
+        if(dataindex > 60){
+          this.isEnd = true;
+          return;
+        }
+        setTimeout(function () {
+          console.log(dataindex);
+          _me.$emit('updatelist', dataindex);
+        }, 200)
+
       }
     }
   }

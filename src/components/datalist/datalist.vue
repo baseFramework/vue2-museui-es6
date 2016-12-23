@@ -1,5 +1,13 @@
 <template>
   <div class="demo-infinite-container">
+    <mu-grid-list class="gridlist-demo">
+      <!--<mu-sub-header>图片展示</mu-sub-header>-->
+      <mu-grid-tile v-for="item in list">
+        <!--<img :src="tile.image"/>-->
+        <span slot="title">11</span>
+        <span slot="subTitle">by <b>222</b></span>
+      </mu-grid-tile>
+    </mu-grid-list>
     <!--<mu-list>-->
       <!--<template v-for="item in list">-->
         <!--<mu-list-item :title="item"/>-->

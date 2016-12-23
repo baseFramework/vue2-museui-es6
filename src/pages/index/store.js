@@ -1,4 +1,5 @@
 import * as types from '../../store/mutation';
+import apiConfig  from '../../config/a-config';
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 
@@ -7,7 +8,7 @@ Vue.use(VueResource)
 const state = {
   indexMsg: 'Hello 123456',
   biologyList: [],
-  listApi: '/api/list',
+  listApi: apiConfig.api.listApi,
   bioend: 10,
   bioload: false,
   biofinished: false

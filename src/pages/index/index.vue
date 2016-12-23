@@ -3,7 +3,6 @@
     <com-head></com-head>
     <com-navi></com-navi>
     <com-datalist v-bind:items="biolist"></com-datalist>
-    <div>{{indexMsg}}</div>
   </div>
 </template>
 

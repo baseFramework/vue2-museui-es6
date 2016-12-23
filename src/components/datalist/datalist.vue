@@ -8,13 +8,7 @@
         <span slot="subTitle">by <b>222</b></span>
       </mu-grid-tile>
     </mu-grid-list>
-    <!--<mu-list>-->
-      <!--<template v-for="item in list">-->
-        <!--<mu-list-item :title="item"/>-->
-        <!--<mu-divider/>-->
-      <!--</template>-->
-    <!--</mu-list>-->
-    <!--<mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore"/>-->
+    <mu-flat-button label="加载更多"  @click="loadMore" class="demo-flat-button" primary/>
   </div>
 </template>
 
@@ -31,12 +25,12 @@
       }
       return {
         list,
-        num: 10,
+        num: 2,
         loading: false,
         scroller: null
       }
     },
-    //props:['items'],
+    props:['items'],
     created:function(){
       this.items = this.items ? this.items : [];
     },
@@ -46,14 +40,15 @@
     },
     methods: {
       loadMore () {
+       // console.log(1234);
         this.loading = true;
         setTimeout(() => {
           for (let i = this.num; i < this.num + 10; i++) {
             this.list.push('item' + (i + 1))
           }
           this.num += 10
-          this.loading = false
-        }, 2000);
+          //this.loading = false
+        }, 500);
       }
     }
   }
